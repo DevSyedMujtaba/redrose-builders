@@ -65,7 +65,7 @@ const Hero = () => {
           <div className={`flex justify-center mb-6 transition-all duration-1000 transform ${
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
-            <div className="flex space-x-1">
+            {/* <div className="flex space-x-1">
               {[...Array(5)].map((_, i) => (
                 <Star 
                   key={i} 
@@ -75,7 +75,7 @@ const Hero = () => {
                   style={{ transitionDelay: `${i * 100}ms` }}
                 />
               ))}
-            </div>
+            </div> */}
           </div>
 
           {/* Main Heading */}

@@ -1,12 +1,104 @@
 import React from 'react'
 import { Calendar, MapPin, Heart } from 'lucide-react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import work9 from '../assets/images/work-9.jpeg'
+import work10 from '../assets/images/work-10.jpeg'
+import work11 from '../assets/images/work-11.jpeg'
+import work12 from '../assets/images/work-12.jpeg'
+import work13 from '../assets/images/work-13.jpeg'
+import work14 from '../assets/images/work-14.jpeg'
+import work15 from '../assets/images/work-15.jpeg'
+import work16 from '../assets/images/work-16.jpeg'
+import work17 from '../assets/images/work-17.jpeg'
+import work18 from '../assets/images/work-18.jpeg'
+import work19 from '../assets/images/work-19.jpeg'
+import work20 from '../assets/images/work-20.jpeg'
+import work21 from '../assets/images/work-21.jpeg'
+import work22 from '../assets/images/work-22.jpeg'
+import work23 from '../assets/images/work-23.jpeg'
 
 const Portfolio = () => {
   const [portfolioRef, isPortfolioVisible] = useScrollAnimation()
   const [whyChooseRef, isWhyChooseVisible] = useScrollAnimation()
   
   const portfolioItems = [
+    {
+      image: work9,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work10,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work11,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work12,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work13,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work14,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work15,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work16,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work17,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work18,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work19,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work20,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work21,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work22,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work23,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    
+    
     {
       image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       title: "Modern House Extension",

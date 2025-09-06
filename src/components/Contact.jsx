@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Phone, Mail, MessageSquare, MapPin, Clock, Shield } from 'lucide-react'
 
 const Contact = () => {
+  const location = useLocation()
   const phoneNumber = "07737675941"
   const email = "redrosebuilders@hotmail.co.uk"
   const whatsappNumber = "447737675941" // UK format without + for WhatsApp
@@ -19,6 +21,20 @@ const Contact = () => {
     window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank')
   }
 
+  useEffect(() => {
+    console.log("📍 Current location:", location);
+    if (location.hash === "#contact") {
+      console.log("✅ Found #contact hash, scrolling...");
+      const el = document.getElementById("contact");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        console.warn("⚠️ #contact element not found in DOM");
+      }
+    }
+  }, [location]);
+
+
   return (
     <>
       {/* CTA Section */}
@@ -30,7 +46,7 @@ const Contact = () => {
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Get a fast, free quote with no obligation. Our team is ready to bring your vision to life.
           </p>
-          <button 
+          <button
             onClick={handleEmail}
             className="bg-white text-red-600 hover:bg-gray-100 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-200 cursor-pointer transform hover:scale-105 hover:shadow-lg"
           >
@@ -49,7 +65,7 @@ const Contact = () => {
                 Get In Touch
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Ready to discuss your project? Contact us today for a 
+                Ready to discuss your project? Contact us today for a
                 free, no-obligation quote.
               </p>
 
@@ -100,7 +116,7 @@ const Contact = () => {
 
             {/* Contact Buttons */}
             <div className="space-y-4">
-              <button 
+              <button
                 onClick={handleCall}
                 className="w-full bg-white border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-medium py-4 px-6 rounded-lg transition-all duration-200 flex items-center justify-center cursor-pointer transform hover:scale-105 hover:shadow-lg"
               >
@@ -111,7 +127,7 @@ const Contact = () => {
                 </div>
               </button>
 
-              <button 
+              <button
                 onClick={handleEmail}
                 className="w-full bg-white border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white font-medium py-4 px-6 rounded-lg transition-all duration-200 flex items-center justify-center cursor-pointer transform hover:scale-105 hover:shadow-lg"
               >
@@ -122,7 +138,7 @@ const Contact = () => {
                 </div>
               </button>
 
-              <button 
+              <button
                 onClick={handleWhatsApp}
                 className="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-4 px-6 rounded-lg transition-all duration-200 flex items-center justify-center cursor-pointer transform hover:scale-105 hover:shadow-lg"
               >

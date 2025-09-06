@@ -1,6 +1,6 @@
 import React from 'react'
 import ServiceCard from './ServiceCard'
-import { Home, ChefHat, Bath, Plus, Square, TrendingUp, Building, Hammer } from 'lucide-react'
+import { Home, ChefHat, Bath, Plus, Square, TrendingUp, Building, Hammer, Layers } from 'lucide-react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Services = () => {
@@ -12,48 +12,63 @@ const Services = () => {
       icon: <Home className="w-full h-full" />,
       title: "HOME IMPROVEMENTS",
       description: "Complete home upgrades and modern finishes tailored to your needs.",
+      // link: "./contact/#contact"
       link: "#"
     },
     {
       icon: <ChefHat className="w-full h-full" />,
       title: "KITCHEN FITTING",
       description: "Bespoke kitchen installations, units and worktops fitted to precision.",
+      // link: "./contact/#contact"
       link: "#"
     },
     {
       icon: <Bath className="w-full h-full" />,
       title: "BATHROOM FITTING",
       description: "Full bathroom installs from tiling to sanitary ware and waterproofing.",
+      // link: "./contact/#contact"
       link: "#"
     },
     {
       icon: <Plus className="w-full h-full" />,
       title: "EXTENSIONS",
       description: "Seamless single- or double-storey extensions with full planning support.",
+      // link: "./contact/#contact"
       link: "#"
     },
     {
       icon: <Square className="w-full h-full" />,
       title: "WINDOWS",
       description: "Supply and fit energy-efficient windows, frames and trickle-vent upgrades.",
+      // link: "./contact/#contact"
       link: "#"
     },
     {
       icon: <TrendingUp className="w-full h-full" />,
       title: "LOFT CONVERSIONS",
       description: "Maximise space with loft conversions, dormers and structural works.",
+      // link: "./contact/#contact"
       link: "#"
     },
     {
       icon: <Building className="w-full h-full" />,
       title: "GARAGE CONVERSIONS",
       description: "Transform garages into living space, offices or studios.",
+      // link: "./contact/#contact"
       link: "#"
     },
     {
       icon: <Hammer className="w-full h-full" />,
       title: "BRICKLAYING",
       description: "Quality brickwork, walls and rebuilds with lasting structural integrity.",
+      // link: "./contact/#contact"
+      link: "#"
+    },
+    {
+      icon: <Layers className="w-full h-full" />,
+      title: "PLASTERING",
+      description: "Professional plastering, skimming and rendering for smooth, lasting finishes.",
+      // link: "./contact/#contact"
       link: "#"
     }
   ]
