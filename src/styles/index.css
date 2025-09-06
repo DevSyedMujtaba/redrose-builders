@@ -33,7 +33,7 @@
 /* https://static.wixstatic.com/media/59b516_7b7510de23fc4df2a20ef89f6b3df9e2~mv2.jpg/v1/fill/w_1905,h_973,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/59b516_7b7510de23fc4df2a20ef89f6b3df9e2~mv2.jpg */
 .hero-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-              url('../assets/images/hero-house1.jpeg');
+              url('https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
