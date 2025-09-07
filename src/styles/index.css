@@ -39,6 +39,14 @@
   background-attachment: fixed;
 }
 
+/* Mobile fallback: disable parallax for smoother scrolling and better performance */
+@media (max-width: 768px) {
+  .hero-bg {
+    background-attachment: scroll;
+    background-position: center top;
+  }
+}
+
 .burgundy-bg {
   background: linear-gradient(135deg, #882c5e 0%, #7c2d12 100%);
 }
@@ -126,6 +134,19 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Prevent accidental horizontal scroll on small screens */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Container padding tweaks for very small devices */
+@media (max-width: 360px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
 }
 
 /* Enhanced button animations */

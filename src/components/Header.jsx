@@ -15,19 +15,34 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [isMenuOpen])
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
   }
 
+  const handleNavLinkClick = () => {
+    setIsMenuOpen(false)
+  }
+
   const goToContact = () => {
     console.log("👉 Button clicked. Navigating to /contact#contact");
-    navigate("/contact#contact");
+    setIsMenuOpen(false)
+    navigate("/#contact");
   };
 
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-500 ${
-        isScrolled ? "burgundy-bg shadow-lg" : "bg-transparent"
+        (isScrolled || isMenuOpen) ? "burgundy-bg shadow-lg" : "bg-transparent"
       }`}
     >
       <nav className="container mx-auto px-4 py-4">
@@ -41,7 +56,7 @@ const Header = () => {
             </div>
             <span
               className={`font-bold text-xl transition-colors duration-500 ${
-                isScrolled
+                (isScrolled || isMenuOpen)
                   ? "text-white"
                   : "text-white drop-shadow-lg"
               }`}
@@ -54,8 +69,9 @@ const Header = () => {
           <div className="hidden md:flex items-center space-x-8">
             <a
               href="#home"
+              onClick={handleNavLinkClick}
               className={`font-medium transition-colors duration-500 ${
-                isScrolled
+                (isScrolled || isMenuOpen)
                   ? "text-white hover:text-red-300"
                   : "text-white hover:text-red-300 drop-shadow-lg"
               }`}
@@ -67,7 +83,7 @@ const Header = () => {
             <div className="relative group">
               <button
                 className={`font-medium transition-colors duration-500 flex items-center ${
-                  isScrolled
+                  (isScrolled || isMenuOpen)
                     ? "text-white hover:text-red-300"
                     : "text-white hover:text-red-300 drop-shadow-lg"
                 }`}
@@ -118,8 +134,9 @@ const Header = () => {
 
             <a
               href="#work"
+              onClick={handleNavLinkClick}
               className={`font-medium transition-colors duration-500 ${
-                isScrolled
+                (isScrolled || isMenuOpen)
                   ? "text-white hover:text-red-300"
                   : "text-white hover:text-red-300 drop-shadow-lg"
               }`}
@@ -128,8 +145,9 @@ const Header = () => {
             </a>
             <a
               href="#about"
+              onClick={handleNavLinkClick}
               className={`font-medium transition-colors duration-500 ${
-                isScrolled
+                (isScrolled || isMenuOpen)
                   ? "text-white hover:text-red-300"
                   : "text-white hover:text-red-300 drop-shadow-lg"
               }`}
@@ -138,8 +156,9 @@ const Header = () => {
             </a>
             <a
               href="#contact"
+              onClick={handleNavLinkClick}
               className={`font-medium transition-colors duration-500 ${
-                isScrolled
+                (isScrolled || isMenuOpen)
                   ? "text-white hover:text-red-300"
                   : "text-white hover:text-red-300 drop-shadow-lg"
               }`}
@@ -148,15 +167,16 @@ const Header = () => {
             </a>
             <div
               className={`flex items-center transition-colors duration-500 ${
-                isScrolled ? "text-white" : "text-white drop-shadow-lg"
+                (isScrolled || isMenuOpen) ? "text-white" : "text-white drop-shadow-lg"
               }`}
             >
               <Phone className="w-4 h-4 mr-2" />
               <span className="font-medium">07737675941</span>
             </div>
             <button
+            onClick={goToContact}
               className={`transition-all duration-500 ${
-                isScrolled
+                (isScrolled || isMenuOpen)
                   ? "bg-white text-red-600 hover:bg-red-50 font-medium py-3 px-6 rounded-lg"
                   : "bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg shadow-lg"
               }`}
@@ -170,7 +190,7 @@ const Header = () => {
             <button
               onClick={toggleMenu}
               className={`transition-colors duration-500 ${
-                isScrolled ? "text-white" : "text-white drop-shadow-lg"
+                (isScrolled || isMenuOpen) ? "text-white" : "text-white drop-shadow-lg"
               }`}
             >
               {isMenuOpen ? (
@@ -186,7 +206,7 @@ const Header = () => {
         {isMenuOpen && (
           <div
             className={`md:hidden mt-4 pb-4 transition-colors duration-500 ${
-              isScrolled
+              (isScrolled || isMenuOpen)
                 ? "border-t border-white/20"
                 : "border-t border-white/30"
             }`}
@@ -194,8 +214,9 @@ const Header = () => {
             <div className="flex flex-col space-y-4 pt-4">
               <a
                 href="#home"
+                onClick={handleNavLinkClick}
                 className={`font-medium transition-colors duration-500 ${
-                  isScrolled
+                  (isScrolled || isMenuOpen)
                     ? "text-white hover:text-red-300"
                     : "text-white hover:text-red-300"
                 }`}
@@ -204,8 +225,9 @@ const Header = () => {
               </a>
               <a
                 href="#services"
+                onClick={handleNavLinkClick}
                 className={`font-medium transition-colors duration-500 ${
-                  isScrolled
+                  (isScrolled || isMenuOpen)
                     ? "text-white hover:text-red-300"
                     : "text-white hover:text-red-300"
                 }`}
@@ -214,8 +236,9 @@ const Header = () => {
               </a>
               <a
                 href="#work"
+                onClick={handleNavLinkClick}
                 className={`font-medium transition-colors duration-500 ${
-                  isScrolled
+                  (isScrolled || isMenuOpen)
                     ? "text-white hover:text-red-300"
                     : "text-white hover:text-red-300"
                 }`}
@@ -224,8 +247,9 @@ const Header = () => {
               </a>
               <a
                 href="#about"
+                onClick={handleNavLinkClick}
                 className={`font-medium transition-colors duration-500 ${
-                  isScrolled
+                  (isScrolled || isMenuOpen)
                     ? "text-white hover:text-red-300"
                     : "text-white hover:text-red-300"
                 }`}
@@ -234,8 +258,9 @@ const Header = () => {
               </a>
               <a
                 href="#contact"
+                onClick={handleNavLinkClick}
                 className={`font-medium transition-colors duration-500 ${
-                  isScrolled
+                  (isScrolled || isMenuOpen)
                     ? "text-white hover:text-red-300"
                     : "text-white hover:text-red-300"
                 }`}
@@ -244,7 +269,7 @@ const Header = () => {
               </a>
               <div
                 className={`flex items-center transition-colors duration-500 ${
-                  isScrolled ? "text-white" : "text-white"
+                  (isScrolled || isMenuOpen) ? "text-white" : "text-white"
                 }`}
               >
                 <Phone className="w-4 h-4 mr-2" />
@@ -253,7 +278,7 @@ const Header = () => {
               <button
                 onClick={goToContact}
                 className={`transition-all duration-500 ${
-                  isScrolled
+                  (isScrolled || isMenuOpen)
                     ? "bg-white text-red-600 hover:bg-red-50 font-medium py-3 px-6 rounded-lg"
                     : "bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg shadow-lg"
                 }`}

@@ -2,81 +2,88 @@ import React from 'react'
 import ServiceCard from './ServiceCard'
 import { Home, ChefHat, Bath, Plus, Square, TrendingUp, Building, Hammer, Layers } from 'lucide-react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
   const [problemRef, isProblemVisible] = useScrollAnimation()
   const [servicesRef, isServicesVisible] = useScrollAnimation()
+  const navigate = useNavigate();
   
   const services = [
     {
       icon: <Home className="w-full h-full" />,
       title: "HOME IMPROVEMENTS",
       description: "Complete home upgrades and modern finishes tailored to your needs.",
-      // link: "./contact/#contact"
-      link: "#"
+      link: "./#contact"
+      // link: "#"
     },
     {
       icon: <ChefHat className="w-full h-full" />,
       title: "KITCHEN FITTING",
       description: "Bespoke kitchen installations, units and worktops fitted to precision.",
-      // link: "./contact/#contact"
-      link: "#"
+      link: "./#contact"
+      // link: "#"
     },
     {
       icon: <Bath className="w-full h-full" />,
       title: "BATHROOM FITTING",
       description: "Full bathroom installs from tiling to sanitary ware and waterproofing.",
-      // link: "./contact/#contact"
-      link: "#"
+      link: "./#contact"
+      // link: "#"
     },
     {
       icon: <Plus className="w-full h-full" />,
       title: "EXTENSIONS",
       description: "Seamless single- or double-storey extensions with full planning support.",
-      // link: "./contact/#contact"
-      link: "#"
+      link: "./#contact"
+      // link: "#"
     },
     {
       icon: <Square className="w-full h-full" />,
       title: "WINDOWS",
       description: "Supply and fit energy-efficient windows, frames and trickle-vent upgrades.",
-      // link: "./contact/#contact"
-      link: "#"
+      link: "./#contact"
+      // link: "#"
     },
     {
       icon: <TrendingUp className="w-full h-full" />,
       title: "LOFT CONVERSIONS",
       description: "Maximise space with loft conversions, dormers and structural works.",
-      // link: "./contact/#contact"
-      link: "#"
+      link: "./#contact"
+      // link: "#"
     },
     {
       icon: <Building className="w-full h-full" />,
       title: "GARAGE CONVERSIONS",
       description: "Transform garages into living space, offices or studios.",
-      // link: "./contact/#contact"
-      link: "#"
+      link: "./#contact"
+      // link: "#"
     },
     {
       icon: <Hammer className="w-full h-full" />,
       title: "BRICKLAYING",
       description: "Quality brickwork, walls and rebuilds with lasting structural integrity.",
-      // link: "./contact/#contact"
-      link: "#"
+      link: "./#contact"
+      // link: "#"
     },
     {
       icon: <Layers className="w-full h-full" />,
       title: "PLASTERING",
       description: "Professional plastering, skimming and rendering for smooth, lasting finishes.",
-      // link: "./contact/#contact"
-      link: "#"
+      link: "./#contact"
+      // link: "#"
     }
   ]
+
+  const goToContact = () => {
+    console.log("👉 Button clicked. Navigating to /contact#contact");
+    navigate("/#contact");
+  };
 
   return (
     <>
       {/* Problem Statement Section */}
-      <section ref={problemRef} className="py-20 bg-gray-50">
+      <section id="about" ref={problemRef} className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className={`lg:w-1/2 transition-all duration-1000 transform ${
@@ -86,7 +93,7 @@ const Services = () => {
                 // 
                 src='https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg'
                 alt="Modern Kitchen Interior"
-                className="rounded-lg shadow-lg w-full h-96 object-cover transform hover:scale-105 transition-transform duration-500"
+                className="rounded-lg shadow-lg w-full h-64 sm:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-500"
               />
             </div>
             <div className={`lg:w-1/2 transition-all duration-1000 transform ${
@@ -118,7 +125,9 @@ const Services = () => {
                   </div>
                 ))}
               </div>
-              <button className="btn-primary transform hover:scale-105 hover:shadow-xl transition-all duration-300">
+              <button 
+              onClick={goToContact}
+              className="btn-primary transform hover:scale-105 hover:shadow-xl transition-all duration-300">
                 Get a Callback Today
               </button>
             </div>

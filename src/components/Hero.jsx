@@ -42,6 +42,7 @@ const TypewriterText = ({ text, delay = 100, className = "" }) => {
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const phoneNumber = "07737675941"
 
   useEffect(() => {
     setIsVisible(true)
@@ -55,6 +56,10 @@ const Hero = () => {
         block: 'start'
       })
     }
+  }
+
+  const handleCall = () => {
+    window.open(`tel:${phoneNumber}`, '_self')
   }
 
   return (
@@ -132,7 +137,7 @@ const Hero = () => {
               Request a Free Quote
             </button>
             <button 
-              onClick={scrollToContact}
+              onClick={handleCall}
               className="btn-secondary text-lg px-8 py-4 transform hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
               Call Us Now

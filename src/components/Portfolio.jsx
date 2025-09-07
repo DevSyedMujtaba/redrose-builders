@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Calendar, MapPin, Heart } from 'lucide-react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 import work9 from '../assets/images/work-9.jpeg'
@@ -16,10 +16,28 @@ import work20 from '../assets/images/work-20.jpeg'
 import work21 from '../assets/images/work-21.jpeg'
 import work22 from '../assets/images/work-22.jpeg'
 import work23 from '../assets/images/work-23.jpeg'
+import work24 from '../assets/images/work-24.jpeg'
+import work25 from '../assets/images/work-25.jpeg'
+import work26 from '../assets/images/work-26.jpeg'
+import work27 from '../assets/images/work-27.jpeg'
+import work28 from '../assets/images/work-28.jpeg'
+import work29 from '../assets/images/work-29.jpeg'
+import work30 from '../assets/images/work-30.jpeg'
+import work31 from '../assets/images/work-31.jpeg'
+import work32 from '../assets/images/work-32.jpeg'
+import work33 from '../assets/images/work-33.jpeg'
+import work34 from '../assets/images/work-34.jpeg'
+import work35 from '../assets/images/work-35.jpeg'
+import work36 from '../assets/images/work-36.jpeg'
 
 const Portfolio = () => {
   const [portfolioRef, isPortfolioVisible] = useScrollAnimation()
   const [whyChooseRef, isWhyChooseVisible] = useScrollAnimation()
+  const [loadedMap, setLoadedMap] = useState({})
+
+  const markLoaded = (index) => {
+    setLoadedMap(prev => ({ ...prev, [index]: true }))
+  }
   
   const portfolioItems = [
     {
@@ -97,7 +115,71 @@ const Portfolio = () => {
       title: "Roof Construction",
       category: "Roofing"
     },
-    
+    {
+      image: work24,
+      title: "Bathroom Construction",
+      category: "Interior Design"
+    },
+    {
+      image: work25,
+      title: "Interior Design",
+      category: "Home Improvment"
+    },
+    {
+      image: work26,
+      title: "Interior Design",
+      category: "Home Improvment"
+    },
+    {
+      image: work27,
+      title: "External Building Work",
+      category: "Construction"
+    },
+    {
+      image: work28,
+      title: "Interior Home Renovation",
+      category: "Construction"
+    },
+    {
+      image: work29,
+      title: "Interior Kitchen Design",
+      category: "Home Improvement"
+    },
+    {
+      image: work30,
+      title: "Interior Design",
+      category: "Home Improvement"
+    },
+    {
+      image: work31,
+      title: "External Building Work",
+      category: "Construction"
+    },
+    {
+      image: work32,
+      title: "Interior Renovation",
+      category: "Home Improvement"
+    },
+    {
+      image: work33,
+      title: "Interior Renovation",
+      category: "Kitchen Design"
+    },
+    {
+      image: work34,
+      title: "Floor Construction",
+      category: "Flooring"
+    },
+    {
+      image: work35,
+      title: "Roof Construction",
+      category: "Roofing"
+    },
+    {
+      image: work36,
+      title: "External Building Work",
+      category: "Construction"
+    },
     
     {
       image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
@@ -167,11 +249,18 @@ const Portfolio = () => {
                 }`}
                 style={{ transitionDelay: `${index * 150}ms` }}
               >
-                <div className="overflow-hidden rounded-lg shadow-lg group-hover:shadow-2xl transition-all duration-500">
+                <div className="overflow-hidden rounded-lg shadow-lg group-hover:shadow-2xl transition-all duration-500 relative">
+                  {/* Skeleton loader overlay */}
+                  {!loadedMap[index] && (
+                    <div className="absolute inset-0 bg-gray-200 animate-pulse" />
+                  )}
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="portfolio-image w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                    onLoad={() => markLoaded(index)}
+                    onError={() => markLoaded(index)}
+                    className={`portfolio-image w-full h-56 sm:h-64 object-cover group-hover:scale-110 transition-transform duration-700 ${loadedMap[index] ? '' : 'opacity-0'}`}
                   />
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-500 flex items-center justify-center">
                     <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white text-center">
