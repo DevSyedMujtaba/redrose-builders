@@ -106,7 +106,7 @@ const Contact = () => {
                   <Shield className="w-6 h-6 text-red-600 mr-4" />
                   <div>
                     <p className="text-sm text-gray-500">Trust a Trader:</p>
-                    <a href="#" className="text-lg font-medium text-red-600 hover:text-red-700">
+                    <a href="https://www.trustatrader.com/traders/red-rose-builders-wolverhampton" target="_blank" className="text-lg font-medium text-red-600 hover:text-red-700">
                       View our profile
                     </a>
                   </div>
